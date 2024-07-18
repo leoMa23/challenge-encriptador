@@ -3,9 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Encriptador</title>
+    <title>Encriptador de Texto</title>
+    <link rel="stylesheet" href="styles/style.css">
 </head>
 <body>
-    
+    <main class="presentacion">
+        <section class="presentacion__izquierda">
+            <img src="" alt="logo de alura">
+            <textarea name="texto" rows="10" cols="30" class="textoEntrada" autofocus placeholder="Ingrese el texto aqui"></textarea>
+            <p>Solo letras minúsculas y sin acentos</p>
+            <div class="presentacion__izquierda__botones">
+                <input class="presentacion__izquierda__btnEncriptar" type="button" value="Encriptar" onclick="encriptar()">
+                <input class="presentacion__izquierda__btnDescencriptar" type="button" value="Desencriptar" onclick="desencriptar()">
+            </div>
+        </section>
+        <section class="presentacion__derecha">
+            <img src="assets/images/imagen-de-inicio.png" alt="imagen de espera de texto">
+            <div class="presentacion__derecha__msjEncriptado">
+                <h2 id="mensaje-titulo">Ningun mensaje encriptado</h2>
+                <p id="mensaje-parrafo">Ingrese el texto que deseas encriptar o desencriptar</p>
+                <textarea name="mensaje" id="mensaje" cols="30" rows="10"></textarea>
+            </div>
+            <input type="button" value="Copiar" onclick="copiar()">
+        </section>
+
+
+    </main>
+    <footer class="footer">
+        <p>Mamani Leonel Franco @2024</p>
+    </footer>
+<script src="app.js"></script>
 </body>
 </html>
