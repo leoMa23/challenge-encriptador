@@ -9,25 +9,25 @@
 <body>
     <main class="presentacion">
         <section class="presentacion__izquierda">
-            <img src="" alt="logo de alura">
-            <textarea name="texto" rows="10" cols="30" class="textoEntrada" autofocus placeholder="Ingrese el texto aqui"></textarea>
-            <p>Solo letras minúsculas y sin acentos</p>
+            <img class="presentacion__logo" src="assets/images/Logo.png" alt="logo de alura">
+            <textarea name="texto" id="texto" rows="10" cols="30" class="textoEntrada" autofocus placeholder="Ingrese el texto aqui"></textarea>
+            <div class="terminos">
+                <p>Solo letras minúsculas y sin acentos</p>
+            </div>
             <div class="presentacion__izquierda__botones">
                 <input class="presentacion__izquierda__btnEncriptar" type="button" value="Encriptar" onclick="encriptar()">
-                <input class="presentacion__izquierda__btnDescencriptar" type="button" value="Desencriptar" onclick="desencriptar()">
+                <input class="presentacion__izquierda__btnDesencriptar" type="button" value="Desencriptar" onclick="desencriptar()">
             </div>
         </section>
         <section class="presentacion__derecha">
-            <img src="assets/images/imagen-de-inicio.png" alt="imagen de espera de texto">
-            <div class="presentacion__derecha__msjEncriptado">
-                <h2 id="mensaje-titulo">Ningun mensaje encriptado</h2>
-                <p id="mensaje-parrafo">Ingrese el texto que deseas encriptar o desencriptar</p>
-                <textarea name="mensaje" id="mensaje" cols="30" rows="10"></textarea>
+            <img id="imagen" src="assets/images/imagen-de-inicio.png" alt="imagen de espera de texto">
+            <div class="presentacion__derecha__mensajeEncriptado">
+                <textarea class="mensajeEncriptado" name="mensaje" id="mensaje" cols="30" rows="10"></textarea>
             </div>
-            <input type="button" value="Copiar" onclick="copiar()">
+            <div class="presentacion__derecha__boton">
+                <input class="presentacion__derecha__btnCopiar" type="button" value="Copiar" onclick="copiar()">
+            </div>
         </section>
-
-
     </main>
     <footer class="footer">
         <p>Mamani Leonel Franco @2024</p>
