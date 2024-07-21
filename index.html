@@ -3,34 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="assets/images/favicon.ico" type="image/x-icon">
     <title>Encriptador de Texto</title>
     <link rel="stylesheet" href="styles/style.css">
 </head>
 <body>
-    <main class="presentacion">
-        <section class="presentacion__izquierda">
-            <img class="presentacion__logo" src="assets/images/Logo.png" alt="logo de alura">
-            <textarea name="texto" id="texto" rows="10" cols="30" class="textoEntrada" autofocus placeholder="Ingrese el texto aqui"></textarea>
-            <div class="terminos">
-                <p>Solo letras minúsculas y sin acentos</p>
+    <header>
+        <a href="https://www.aluracursos.com/">
+            <img src="assets/images/logo.svg" alt="logo de alura" class="logo">
+        </a>
+    </header>
+
+    <main>
+        <section class="mitadIzquierda">
+            <textarea class="encriptador" autofocus placeholder="Ingrese el texto aqui"></textarea>
+            <div class="encriptador__aviso">
+                <img src="assets/images/aviso.svg" alt="imagen de aviso" class="img__aviso">
+                <p class="texto__aviso">Solo letras minúsculas y sin acentos</p>
             </div>
-            <div class="presentacion__izquierda__botones">
-                <input class="presentacion__izquierda__btnEncriptar" type="button" value="Encriptar" onclick="encriptar()">
-                <input class="presentacion__izquierda__btnDesencriptar" type="button" value="Desencriptar" onclick="desencriptar()">
+            <div class="encriptador__botones">
+                <input class="btn__encriptar" type="button" value="Encriptar" onclick="encriptar()">
+                <input class="btn__desencriptar" type="button" value="Desencriptar" onclick="desencriptar()">
             </div>
         </section>
-        <section class="presentacion__derecha">
-            <img id="imagen" src="assets/images/imagen-de-inicio.png" alt="imagen de espera de texto">
-            <div class="presentacion__derecha__mensajeEncriptado">
-                <textarea class="mensajeEncriptado" name="mensaje" id="mensaje" cols="30" rows="10"></textarea>
+
+        <section class="mitadDerecha">
+            <div class="tarjeta__contenedor">
+                <img src="assets/images/muñeco.svg" alt="imagen de muñeco" class="img__muneco">
+                <p class="tarjeta__texto__uno">Ningún mensaje fue encontrado</p>
+                <p class="tarjeta__texto__dos">Ingrese el texto que deseas encriptar o desencriptar</p>
             </div>
-            <div class="presentacion__derecha__boton">
-                <input class="presentacion__derecha__btnCopiar" type="button" value="Copiar" onclick="copiar()">
-            </div>
+            <textarea type="mensaje" class="tarjeta__resultado" readonly></textarea>
+            <input class="btn__copiar" type="button" value="Copiar" onclick="copiar()">
         </section>
     </main>
-    <footer class="footer">
-        <p>Mamani Leonel Franco @2024</p>
+
+    <footer>
+        <p class="copyrigth">&copy; copyright 2024 - Desarrollado por Mamani Leonel Franco</p>
+        <a href="#">
+            <img src="assets/images/linkedin.svg" alt="logo de linkedin" class="linkedin">
+        </a><a href="#">
+            <img src="assets/images/github.svg" alt="logo de GitHub" class="github">
+        </a>
     </footer>
 <script src="app.js"></script>
 </body>
