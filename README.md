@@ -20,4 +20,5 @@ Este proyecto consiste en una página web que permite encriptar y desencriptar m
 
 ## Uso
 
-- Ingresa a esta web: 
+- Ingresa a esta web: [Enlace del encriptador](https://leoma23.github.io/challenge-encriptador/)
+
