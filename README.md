@@ -18,6 +18,6 @@ Este proyecto consiste en una página web que permite encriptar y desencriptar m
 - CSS
 - JavaScript
 
-## Instalación y Uso
+## Uso
 
-1. Clona este repositorio:
+- Ingresa a esta web: 
