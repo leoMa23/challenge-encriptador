@@ -334,9 +334,9 @@ footer{
 
 @media (max-width: 720px){
     header.logo{
-        width: 100%;
+        width: 90%;
         background: var(--white);
-        padding: 2px;
+        padding: 1px;
     }
 
     .encriptador{
@@ -351,6 +351,10 @@ footer{
 
     .mitadDerecha{
         width: 90%;
+    }
+
+    .btn__copiar{
+        width: 30%;
     }
 
     .copyrigth{

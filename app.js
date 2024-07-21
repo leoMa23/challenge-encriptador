@@ -1,47 +1,107 @@
+const btnEncriptar = document.querySelector('.btn__encriptar');
+const btnDesencriptar = document.querySelector('.btn__desencriptar');
+const txtEncriptar = document.querySelector('.encriptador');
+const aviso = document.querySelector(".texto__aviso");
+const respuesta = document.querySelector(".tarjeta__resultado");
+const contenido = document.querySelector(".tarjeta__contenedor");
+const btnCopiar = document.querySelector(".btn__copiar");
 
-function encriptar(){
-    let texto = document.getElementById("texto").value;
-    let parrafo = document.getElementById("mensaje");
-    let imagen = document.getElementById("imagen");
-    let textoEncriptado = texto.replace(/i/gi, "ines")
-                                .replace(/a/gi, "ai")
-                                .replace(/e/gi, "enter")
-                                .replace(/o/gi, "ober")
-                                .replace(/u/gi, "ufat");
-                                
-    if(texto.length !=0){
-        imagen.style.display= "none";
-        texto = textoEncriptado;
-        parrafo.textContent = texto;
+// ------------Boton Encriptar ---------
+btnEncriptar.addEventListener("click", e=>{
+    e.preventDefault();
+    let texto = txtEncriptar.value;
+    let txt = texto.normalize("NFD").replace(/[$\.¿\?~!\¡@#%^&*()_|}\{[\]>\<:"`;,\u0300-\u036f']/g, "");
+    
+    if(texto == ""){
+        aviso.style.background = "#0a3871";
+        aviso.style.color = "#FFFF";
+        aviso.style.fontWeight = "800";
+        aviso.textContent = "El campo de texto no debe estar vacio";
+
+        setTimeout(()=>{
+            aviso.removeAttribute("style")   
+        },1500);
+    }else if(texto !== txt){
+        aviso.style.background = "#0a3871";
+        aviso.style.color = "#FFFF";
+        aviso.style.fontWeight = "800";
+        aviso.textContent = "No debe tener acentos ni caracteres especiales";
+
+        setTimeout(()=>{
+            aviso.removeAttribute("style")   
+        },1500);
+    }else if(texto !== texto.toLowerCase()){
+        aviso.style.background = "#0a3871";
+        aviso.style.color = "#FFFF";
+        aviso.style.fontWeight = "800";
+        aviso.textContent = "El texto debe ser todo en minúscula";
+
+        setTimeout(()=>{
+            aviso.removeAttribute("style")   
+        },1500);
     }else{
-        imagen.style.display="none";
-        parrafo.textContent = "Debes ingresar algun texto para encriptar"; 
-    }
-}
+        texto = texto.replace(/e/mg, "enter")
+        texto = texto.replace(/i/mg, "ines")
+        texto = texto.replace(/a/mg, "ai")
+        texto = texto.replace(/o/mg, "ober")
+        texto = texto.replace(/u/mg, "ufat")
 
-function desencriptar(){
-    let texto = document.getElementById("texto").value;
-    let parrafo = document.getElementById("mensaje");
-    let imagen = document.getElementById("imagen");
-    let textoEncriptado = texto.replace(/ai/gi, "a")
-                                .replace(/enter/gi, "e")
-                                .replace(/ines/gi, "i")
-                                .replace(/ober/gi, "o")
-                                .replace(/ufat/gi, "u");
-    if(texto.length !=0){
-        imagen.style.display = "none";
-        texto = textoEncriptado;
-        parrafo.textContent = texto;
+        respuesta.innerHTML = texto;
+        btnCopiar.style.visibility = "inherit";
+        contenido.remove();
+    }
+})
+
+// --------Boton Desencriptar----------
+btnDesencriptar.addEventListener("click", e=>{
+    e.preventDefault();
+    let texto = txtEncriptar.value;
+    let txt = texto.normalize("NFD").replace(/[$\.¿\?~!\¡@#%^&*()_|}\{[\]>\<:"`;,\u0300-\u036f']/g, "");
+    
+    if(texto == ""){
+        aviso.style.background = "#0a3871";
+        aviso.style.color = "#FFFF";
+        aviso.style.fontWeight = "800";
+        aviso.textContent = "El campo de texto no debe estar vacio";
+
+        setTimeout(()=>{
+            aviso.removeAttribute("style")   
+        },1500);
+    }else if(texto !== txt){
+        aviso.style.background = "#0a3871";
+        aviso.style.color = "#FFFF";
+        aviso.style.fontWeight = "800";
+        aviso.textContent = "No debe tener acentos ni caracteres especiales";
+
+        setTimeout(()=>{
+            aviso.removeAttribute("style")   
+        },1500);
+    }else if(texto !== texto.toLowerCase()){
+        aviso.style.background = "#0a3871";
+        aviso.style.color = "#FFFF";
+        aviso.style.fontWeight = "800";
+        aviso.textContent = "El texto debe ser todo en minúscula";
+
+        setTimeout(()=>{
+            aviso.removeAttribute("style")   
+        },1500);
     }else{
-        imagen.style.display= "none";
-        parrafo.textContent= "Debes ingresar algun texto para desencriptar"
-    }
-}
+        texto = texto.replace(/enter/mg, "e")
+        texto = texto.replace(/ines/mg, "i")
+        texto = texto.replace(/ai/mg, "a")
+        texto = texto.replace(/ober/mg, "o")
+        texto = texto.replace(/ufat/mg, "u")
 
-function copiar(){
-    let copia = document.getElementById("mensaje");
-    if(copia){
-        copia.select();
-        document.execCommand("copy");
+        respuesta.innerHTML = texto;
+        btnCopiar.style.visibility = "inherit";
+        contenido.remove();
     }
-}
+})
+
+// ---------Boton Copiar----------
+btnCopiar.addEventListener("click", e=>{
+    e.preventDefault();
+    let copiar = respuesta;
+    copiar.select();
+    document.execCommand("copy");
+});
